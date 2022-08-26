@@ -17,7 +17,7 @@ async def on_ready():
     result = await nekoClient.image(SFWImageTags.NEKO)
     print(result.url)
     print("Logged in as {0.user}".format(client))
-    await client.change_presence(status=discord.Status('online'), activity=discord.Game(name="Time to conquer the heavens", url="technoblade.com"))
+    await client.change_presence(status=discord.Status('online'), activity=discord.Game(name="Cringe"))
     #await client.get_channel(987005532214804510).send(result.url)
 
 
