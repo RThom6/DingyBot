@@ -4,7 +4,7 @@ from anekos import NekosLifeClient, SFWImageTags
 with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.all())
 nekoClient = NekosLifeClient()
 
 prefix = '='
@@ -15,9 +15,8 @@ async def on_ready():
     result = await nekoClient.image(SFWImageTags.NEKO)
     print(result.url)
     print("Logged in as {0.user}".format(client))
-    await client.change_presence(status=discord.Status('online'),
-                                 activity=discord.Game(name="Time to conquer the heavens", url="technoblade.com"))
-    # await client.get_channel(987005532214804510).send(result.url)
+    await client.change_presence(status=discord.Status('online'), activity=discord.Game(name="Time to conquer the heavens", url="technoblade.com"))
+    #await client.get_channel(987005532214804510).send(result.url)
 
 
 @client.event
@@ -29,10 +28,6 @@ async def on_message(message):
     user_id = str(message.author.id)
     user_message = str(message.content)
     channel = str(message.channel.name)
-
-    # if username == "RThom":
-    #  role = discord.utils.get(message.guild.roles, name="bot")
-    # await message.author.add_roles(role)
 
     if message.guild.name != "Valoobant":
         print(f'({message.guild.name}) {username}: {user_message} ({channel})')
