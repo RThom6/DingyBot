@@ -13,8 +13,8 @@ prefix = '='
 @client.event
 async def on_ready():
     print("Logged in as {0.user}".format(client))
-    result = await nekoClient.image(SFWImageTags.NEKO)
-    print(result.url)
+    #result = await nekoClient.image(SFWImageTags.NEKO)
+    #print(result.url)
     
     await client.change_presence(status=discord.Status('online'), activity=discord.Game(name="Cringe"))
     #await client.get_channel(987005532214804510).send(result.url)
