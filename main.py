@@ -1,6 +1,6 @@
 import random, os, discord
 from anekos import NekosLifeClient, SFWImageTags
-#nuggets
+#CHICKENnuggets
 with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
