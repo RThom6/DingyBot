@@ -4,14 +4,15 @@ from anekos import NekosLifeClient, SFWImageTags
 with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
-client = discord.Client(intents=discord.Intents.all())
-nekoClient = NekosLifeClient()
+
 
 prefix = '='
 
 
 @client.event
 async def on_ready():
+    client = discord.Client(intents=discord.Intents.all())
+    nekoClient = NekosLifeClient()
     print("Logged in as {0.user}".format(client))
     #result = await nekoClient.image(SFWImageTags.NEKO)
     #print(result.url)
