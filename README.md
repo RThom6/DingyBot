@@ -1,0 +1,2 @@
+# DingyBot
+Dogshit bot
