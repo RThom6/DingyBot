@@ -6,7 +6,7 @@ from discord.ext import commands
 with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
-client = commands.Bot(command_prefix = "=") 
+client = commands.Bot(command_prefix = "=", intents=discord.Intents.all()) 
 nekoClient = NekosLifeClient()
 
 prefix = '='
