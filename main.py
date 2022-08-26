@@ -71,6 +71,4 @@ async def on_message(message):
     elif user_message.startswith(prefix) and message.channel.name != "idea-submissions":
         await message.channel.send(f"I don't work in here :angry:")
 
-loop = get_event_loop()
-loop.run_until_complete(on_message())
 client.run(TOKEN)
