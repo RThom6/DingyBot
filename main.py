@@ -1,10 +1,12 @@
 import random, os, discord
 from anekos import NekosLifeClient, SFWImageTags
+from discord.ext.commands import Bot
+from discord.ext import commands
 #CHICKENnuggets
 with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
-client = discord.Client(intents=discord.Intents.all())
+client = commands.Bot(command_prefix = "=") 
 nekoClient = NekosLifeClient()
 
 prefix = '='
@@ -12,8 +14,6 @@ prefix = '='
 
 @client.event
 async def on_ready():
-    client = discord.Client(intents=discord.Intents.all())
-    nekoClient = NekosLifeClient()
     result = await nekoClient.image(SFWImageTags.NEKO)
     print(result.url)
     print("Logged in as {0.user}".format(client))
