@@ -12,6 +12,8 @@ prefix = '='
 
 @client.event
 async def on_ready():
+    client = discord.Client(intents=discord.Intents.all())
+    nekoClient = NekosLifeClient()
     result = await nekoClient.image(SFWImageTags.NEKO)
     print(result.url)
     print("Logged in as {0.user}".format(client))
