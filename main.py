@@ -61,7 +61,7 @@ async def on_message(message):
                 await message.channel.send(f'Stop pinging me <@{user_id}>!')
             return
         if user_message.lower() == prefix + "neko":
-            result = await nekoClient.random_image()  # nsfwLewd, Gasm, spank(gif),
+            result = await nekoClient.image(SFWImageTags.NEKO)  # nsfwLewd, Gasm, spank(gif),
             await message.channel.send(result.url)
             return
         if user_message.lower() == prefix + "prussia":
