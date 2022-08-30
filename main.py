@@ -1,14 +1,12 @@
 import random, os, discord
-from anekos import NekosLifeClient, SFWImageTags
+from anekos import NekosLifeClient, SFWImageTags, NSFWImageTags
 from asyncio import get_event_loop
-import aiohttp
 
 with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
 
 client = discord.Client(intents=discord.Intents.all())
-nekoClient = NekosLifeClient()
 prefix = '='
 
 
@@ -25,6 +23,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    neko = NekosLifeClient()  
+
     if message.author == client.user:
         return
 
@@ -61,16 +61,21 @@ async def on_message(message):
                 await message.channel.send(f'Stop pinging me <@{user_id}>!')
             return
         if user_message.lower() == prefix + "neko":
-            #result =  # nsfwLewd, Gasm, spank(gif),
-            await message.channel.send((await NekosLifeClient().image(SFWImageTags.NEKO)).url)
-            await NekosLifeClient.close()
+            result = await neko.image(SFWImageTags.NEKO)# nsfwLewd, Gasm, spank(gif),
+            await message.channel.send(result.url)
+            return
+        if user_message.lower() == prefix + "gasm":
+            result = await neko.image(NSFWImageTags.GASM)# nsfwLewd, Gasm, spank(gif),
+            await message.channel.send(result.url)
             return
         if user_message.lower() == prefix + "prussia":
             for x in range(5):
                 await message.channel.send(f'https://tenor.com/view/chad-giga-gigachad-prussia-gif-24245950')
             return
+        
 
     elif user_message.startswith(prefix) and message.channel.name != "idea-submissions":
         await message.channel.send(f"I don't work in here :angry:")
+
 
 client.run(TOKEN)
