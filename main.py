@@ -1,5 +1,5 @@
 import random, os, discord
-from anekos import NekosLifeClient, SFWImageTags, NSFWImageTags
+from anekos import NekosLifeClient, SFWImageTags
 from asyncio import get_event_loop
 
 with open(f"./token.txt", "r") as f:
@@ -49,7 +49,7 @@ async def on_message(message):
             print(file)
             await message.channel.send(file=discord.File("./Pumps/" + file))
 
-    if message.channel.name == 'bot-testing' or message.channel.name == 'announcements' and message.guild.name != "Valboont":
+    if message.guild.name != "Valboont":
         if user_message.lower() == prefix + 'love':
             await message.channel.send(f'I love you <@{user_id}>')
             return
@@ -64,8 +64,8 @@ async def on_message(message):
             result = await neko.image(SFWImageTags.NEKO)# nsfwLewd, Gasm, spank(gif),
             await message.channel.send(result.url)
             return
-        if user_message.lower() == prefix + "gasm":
-            result = await neko.image(NSFWImageTags.GASM)# nsfwLewd, Gasm, spank(gif),
+        if user_message.lower() == prefix + "kitsune":
+            result = await neko.image(SFWImageTags.FOX_GIRL)# nsfwLewd, Gasm, spank(gif),
             await message.channel.send(result.url)
             return
         if user_message.lower() == prefix + "prussia":
