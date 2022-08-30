@@ -63,6 +63,7 @@ async def on_message(message):
         if user_message.lower() == prefix + "neko":
             #result =  # nsfwLewd, Gasm, spank(gif),
             await message.channel.send((await NekosLifeClient().image(SFWImageTags.NEKO)).url)
+            await NekosLifeClient.session.close()
             return
         if user_message.lower() == prefix + "prussia":
             for x in range(5):
