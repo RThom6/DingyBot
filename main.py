@@ -53,6 +53,9 @@ async def on_message(message):
         if user_message.lower() == prefix + 'love':
             await message.channel.send(f'I love you <@{user_id}>')
             return
+        if user_message.lower() == prefix + 'tom':
+            await message.channel.send(f'Tom is hot')
+            return
         if user_message.lower() == "i love dingy bot":
             await message.channel.send(f'I love you too <@{user_id}>!')
             return
