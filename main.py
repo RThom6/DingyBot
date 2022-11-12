@@ -29,7 +29,7 @@ async def on_ready():
         print(e)
 
 @client.tree.command(name="yo")
-async def hello(interaction: discord.Interaction):
+async def yo(interaction: discord.Interaction):
     await interaction.response.send_message(f"Yo {interaction.user.mention}", ephemeral=True)
 
 
