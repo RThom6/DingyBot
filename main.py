@@ -6,12 +6,12 @@ from discord.ext import commands
 with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
-client = discord.Client()
+
 nekoClient = NekosLifeClient()
 
 prefix = '='
 
-bot = commands.Bot(command_prefix='=', intents = discord.Intents.all())
+client = commands.Bot(command_prefix='=', intents = discord.Intents.all())
 
 @client.event
 async def on_ready():
@@ -22,12 +22,12 @@ async def on_ready():
                                  activity=discord.Game(name="Time to conquer the heavens", url="technoblade.com"))
     # await client.get_channel(987005532214804510).send(result.url)
     try:
-        synced = await bot.tree.sync()
+        synced = await client.tree.sync()
         print(f"Synced {len(synced)} command(s)")
     except Exception as e:
         print(e)
 
-@bot.tree.command(name="yo")
+@client.tree.command(name="yo")
 async def hello(interaction: discord.Interaction):
     await interaction.response.send_message(f"Yo {interaction.user.mention}", ephemeral=True)
 
