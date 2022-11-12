@@ -1,24 +1,35 @@
 import random, os, discord
 from anekos import NekosLifeClient, SFWImageTags
-from asyncio import get_event_loop
-#webhook test
+from discord import app_commands
+from discord.ext import commands
+
 with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
+client = discord.Client()
+nekoClient = NekosLifeClient()
 
-client = discord.Client(intents=discord.Intents.all())
 prefix = '='
 
+bot = commands.Bot(command_prefix='=', intents = discord.Intents.all())
 
 @client.event
 async def on_ready():
-    
+    result = await nekoClient.image(SFWImageTags.NEKO)
+    print(result.url)
     print("Logged in as {0.user}".format(client))
-    #result = await nekoClient.image(SFWImageTags.NEKO)
-    #print(result.url)
-    
-    await client.change_presence(status=discord.Status('online'), activity=discord.Game(name="Cringe"))
-    #await client.get_channel(987005532214804510).send(result.url)
+    await client.change_presence(status=discord.Status('online'),
+                                 activity=discord.Game(name="Time to conquer the heavens", url="technoblade.com"))
+    # await client.get_channel(987005532214804510).send(result.url)
+    try:
+        synced = await bot.tree.sync()
+        print(f"Synced {len(synced)} command(s)")
+    except Exception as e:
+        print(e)
+
+@bot.tree.command(name="yo")
+async def hello(interaction: discord.Interaction):
+    await interaction.response.send_message(f"Yo {interaction.user.mention}", ephemeral=True)
 
 
 @client.event
