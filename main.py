@@ -53,38 +53,38 @@ async def pumps(interaction: discord.Interaction):
 async def prussia(interaction: discord.Interaction):
     for x in range(5):
         
-        await interaction.followup.send(f"https://tenor.com/view/chad-giga-gigachad-prussia-gif-24245950")
-    await interaction.followup.send(f"https://www.youtube.com/watch?v=f_6AQA4uzD0")
+        await interaction.response.send_message(f"https://tenor.com/view/chad-giga-gigachad-prussia-gif-24245950")
+    await interaction.response.send_message(f"https://www.youtube.com/watch?v=f_6AQA4uzD0")
+    
     return
 
 
-# @client.event
-# async def on_message(message):
+@client.event
+async def on_message(message):
 #     neko = NekosLifeClient()
 #
 #     if message.author == client.user:
 #         return
 #
-#     username = str(message.author).split('#')[0]
-#     user_id = str(message.author.id)
-#     user_message = str(message.content)
-#     channel = str(message.channel.name)
+    username = str(message.author).split('#')[0]
+    user_id = str(message.author.id)
+    user_message = str(message.content)
+    channel = str(message.channel.name)
 #
 #     if message.guild.name != "Valoobant":
 #         print(f'({message.guild.name}) {username}: {user_message} ({channel})')
 #         with open(f"./Cant-logs.txt", "a+") as f:
 #             f.write(f"({message.guild.name}) {username}: {user_message} ({channel})\n")
 #
-#     if message.channel.name != (
-#             "boomer-submission-channel" and "pumps-submission-channel" and "dingy-submission-channel"):
-#         if 'boomer' in user_message.lower():
-#             file = random.choice(os.listdir("./Boomer/"))
-#             print(file)
-#             await message.channel.send(file=discord.File("./Boomer/" + file))
-#         if 'pumps' in user_message.lower():
-#             file = random.choice(os.listdir("./Pumps/"))
-#             print(file)
-#             await message.channel.send(file=discord.File("./Pumps/" + file))
+    if message.channel.name != ("boomer-submission-channel" and "pumps-submission-channel" and "dingy-submission-channel"):
+        if 'boomer' in user_message.lower():
+            file = random.choice(os.listdir("./Boomer/"))
+            print(file)
+            await message.channel.send(file=discord.File("./Boomer/" + file))
+        if 'pumps' in user_message.lower():
+            file = random.choice(os.listdir("./Pumps/"))
+            print(file)
+            await message.channel.send(file=discord.File("./Pumps/" + file))
 #
 #     if message.guild.name != "Valboont":
 #         if user_message.lower() == prefix + 'love':
