@@ -52,8 +52,9 @@ async def pumps(interaction: discord.Interaction):
 @client.tree.command(name="prussia")
 async def prussia(interaction: discord.Interaction):
     for x in range(5):
-        await interaction.response.send_message(f"https://tenor.com/view/chad-giga-gigachad-prussia-gif-24245950")
-    await interaction.response.send_message(f"https://www.youtube.com/watch?v=f_6AQA4uzD0")
+        
+        await interaction.followup.send(f"https://tenor.com/view/chad-giga-gigachad-prussia-gif-24245950")
+    await interaction.followup.send(f"https://www.youtube.com/watch?v=f_6AQA4uzD0")
     return
 
 
