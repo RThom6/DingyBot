@@ -1,5 +1,5 @@
 import random, os, discord
-from anekos import NekosLifeClient, SFWImageTags
+#from anekos import NekosLifeClient, SFWImageTags
 from discord import app_commands
 from discord.ext import commands
 
@@ -7,7 +7,7 @@ with open(f"./token.txt", "r") as f:
     TOKEN = f.read()
 
 
-nekoClient = NekosLifeClient()
+#nekoClient = NekosLifeClient()
 
 prefix = '='
 
@@ -32,7 +32,10 @@ async def on_ready():
 async def yo(interaction: discord.Interaction):
     await interaction.response.send_message(f"Yo {interaction.user.mention}", ephemeral=True)
 
-
+@client.tree.command(name="boomer")
+async def boomer(interaction: discord.Interaction):
+    file = random.choice(os.listdir("./Boomer/"))
+    await interaction.response.send_message(file=discord.File("./Boomer/" + file))
 # @client.event
 # async def on_message(message):
 #     neko = NekosLifeClient()
