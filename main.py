@@ -36,6 +36,11 @@ async def yo(interaction: discord.Interaction):
 async def boomer(interaction: discord.Interaction):
     file = random.choice(os.listdir("./Boomer/"))
     await interaction.response.send_message(file=discord.File("./Boomer/" + file))
+
+@client.tree.command(name="pump")
+async def pumps(interaction: discord.Interaction):
+    file = random.choice(os.listdir("./Pumps/"))
+    await interaction.response.send_message(file=discord.File("./Pumps/" + file))
 # @client.event
 # async def on_message(message):
 #     neko = NekosLifeClient()
