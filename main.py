@@ -87,9 +87,9 @@ async def on_message(message):
             await message.channel.send(file=discord.File("./Pumps/" + file))
 #
 #     if message.guild.name != "Valboont":
-#         if user_message.lower() == prefix + 'love':
-#             await message.channel.send(f'I love you <@{user_id}>')
-#             return
+        if user_message.lower() == prefix + 'love':
+            await message.channel.send(f'I love you <@{user_id}>')
+            return
 #         if user_message.lower() == prefix + 'tom':
 #             await message.channel.send(f'Tom is hot')
 #             return
