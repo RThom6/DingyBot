@@ -28,19 +28,35 @@ async def on_ready():
     except Exception as e:
         print(e)
 
+#Hidden yo command
 @client.tree.command(name="yo")
 async def yo(interaction: discord.Interaction):
     await interaction.response.send_message(f"Yo {interaction.user.mention}", ephemeral=True)
+    return
 
+#Boom posting
 @client.tree.command(name="boomer")
 async def boomer(interaction: discord.Interaction):
     file = random.choice(os.listdir("./Boomer/"))
     await interaction.response.send_message(file=discord.File("./Boomer/" + file))
+    return
 
+#Pumps posting
 @client.tree.command(name="pumps")
 async def pumps(interaction: discord.Interaction):
     file = random.choice(os.listdir("./Pumps/"))
     await interaction.response.send_message(file=discord.File("./Pumps/" + file))
+    return
+
+#Prussia Gloria
+@client.tree.command(name="prussia")
+async def prussia(interaction: discord.Interaction):
+    for x in range(5):
+        await interaction.response.send_message(f"https://tenor.com/view/chad-giga-gigachad-prussia-gif-24245950")
+    await interaction.response.send_message(f"https://www.youtube.com/watch?v=f_6AQA4uzD0")
+    return
+
+
 # @client.event
 # async def on_message(message):
 #     neko = NekosLifeClient()
