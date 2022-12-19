@@ -37,7 +37,7 @@ async def boomer(interaction: discord.Interaction):
     file = random.choice(os.listdir("./Boomer/"))
     await interaction.response.send_message(file=discord.File("./Boomer/" + file))
 
-@client.tree.command(name="pump")
+@client.tree.command(name="pumps")
 async def pumps(interaction: discord.Interaction):
     file = random.choice(os.listdir("./Pumps/"))
     await interaction.response.send_message(file=discord.File("./Pumps/" + file))
